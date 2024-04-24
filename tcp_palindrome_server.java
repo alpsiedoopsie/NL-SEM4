@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class PalindromeServer {
+public class tcp_palindrome_server {
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(9999); // Create a server socket on port 9999

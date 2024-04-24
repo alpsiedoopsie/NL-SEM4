@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class Client{
+public class TCPCountVowelsClient{
 	public static void main(String[] args)throws IOException{
 		String serverHostname = "localhost";
 		int serverPort = 8080;

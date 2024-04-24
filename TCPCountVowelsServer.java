@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class Server{
+public class TCPCountVowelsServer{
 	public static void main(String[] args) throws IOException {
 		int portNumber = 8080;
 		ServerSocket serverSocket = new ServerSocket(portNumber);

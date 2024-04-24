@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.lang.Math.*;
-public class TCPServer {
+public class tcp_sqrt_server {
     public static void main(String args[]) throws Exception {
         // create server socket
         ServerSocket welcomeSocket = new ServerSocket(6789);

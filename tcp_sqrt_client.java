@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class TCPClient {
+public class tcp_sqrt_client {
     public static void main(String args[]) throws Exception {
         // create input stream to read from user
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
