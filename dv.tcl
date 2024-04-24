@@ -16,7 +16,7 @@ exec nam outrot.nam $
 exit 0}
 
 for {set i 0} {$i < 9 } {incr i} {
-set n($i) [$ns node] }
+set n($i) [$ns node] } 
 
 for {set i 0} {$i < 9 } {incr i} {
 $ns duplex-link $n($i) $n([expr $i+1]) 2Mb 10 ms DropTail }

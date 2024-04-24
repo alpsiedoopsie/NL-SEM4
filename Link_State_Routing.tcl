@@ -4,7 +4,7 @@ $ns namtrace-all $anim
 
 $ns color 1 Blue
 
-$ns rtproto DV
+$ns rtproto LS
 
 proc finish {} {
 	global ns anim
