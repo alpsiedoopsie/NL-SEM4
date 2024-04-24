@@ -55,13 +55,9 @@ $ns duplex-link $n2 $n4 2Mb 10ms DropTail
 
 
 $ns duplex-link-op $n0 $n1 orient down-left
-
 $ns duplex-link-op $n0 $n3 orient down-right
-
 $ns duplex-link-op $n1 $n2 orient down
-
 $ns duplex-link-op $n3 $n4 orient down-left
-
 $ns duplex-link-op $n2 $n4 orient down-right
 
 
