@@ -1,0 +1,1013 @@
+﻿1. Ping              W
+2. Ipconfig         W
+3. Tracert          W
+4. Nslookup      W
+5. Netstat          W
+6. Route            W
+7. Hostname      W
+8. Arp                 W
+9. Curl                 L
+10. Whois              L
+11. Dig                   L
+12. Mtr                   L
+13. Ss                    L
+14. Wget                L
+15. Route               L
+16. Host                 L
+17. Ifconfig             L
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Certainly! Here's an example of using the `ping` command with various options:
+
+
+1. **Basic Ping:**
+```bash
+ping www.example.com
+```
+This command sends ICMP echo requests to the specified host (`www.example.com`) and displays the round-trip time for each packet received.
+
+
+2. **Resolve Addresses to Hostnames (-a option):**
+```bash
+ping -a 93.184.216.34
+```
+This command resolves the IP address `93.184.216.34` to its corresponding hostname and then sends ICMP echo requests to that hostname.
+
+
+3. **Timeout (-w option):**
+```bash
+ping -w 2000 www.example.com
+```
+This command sets the timeout for each ping request to 2000 milliseconds (2 seconds). If a reply is not received within this timeout, the ping command will report a timeout error.
+
+
+4. **Set Don't Fragment Flag (-f option) [IPv4 only]:**
+```bash
+ping -f www.example.com
+```
+This command sets the Don't Fragment (DF) flag in the packet header, instructing routers not to fragment the packet. This option is only applicable for IPv4.
+
+
+5. **Time To Live (TTL) (-i option):**
+```bash
+ping -i 64 www.example.com
+```
+This command sets the TTL (Time To Live) value in the IP header for echo request messages to 64. The TTL determines the maximum number of hops (routers) that the packet can traverse before being discarded.
+
+
+6. **Number of Packets (-n option):**
+```bash
+ping -n 5 www.example.com
+```
+This command sends only 5 ICMP echo requests to the specified host (`www.example.com`). By default, ping sends requests indefinitely until terminated by the user.
+
+
+
+
+
+
+Sure, here are examples of using the `ipconfig` command with various options:
+
+
+1. **Display full TCP/IP configuration for all adapters (/all option):**
+
+
+```bash
+ipconfig /all
+```
+
+
+This command will display detailed information about all network adapters, including IP addresses, subnet masks, default gateways, DNS servers, and more.
+
+
+2. **Display contents of DNS client resolver cache (/displaydns option):**
+
+
+```bash
+ipconfig /displaydns
+```
+
+
+This command will display the contents of the DNS client resolver cache, including entries preloaded from the local hosts file and recently obtained resource records.
+
+
+3. **Flush and reset DNS client resolver cache (/flushdns option):**
+
+
+```bash
+ipconfig /flushdns
+```
+
+
+This command will flush and reset the contents of the DNS client resolver cache, useful for troubleshooting DNS-related issues.
+
+
+4. **Release current IP address (/release option):**
+
+
+```bash
+ipconfig /release
+```
+
+
+This command will release the current IP address assigned to the computer, effectively resetting the IP configuration. It sends a request to the DHCP server to abandon the active lease(s) and remove them from the system.
+
+
+5. **Renew IP address (/renew option):**
+
+
+```bash
+ipconfig /renew
+```
+
+
+This command will request a new IP address from the DHCP server. It's useful when you want to obtain a new IP address dynamically from the DHCP server.
+
+
+1. **Determine the path taken to a destination:**
+
+
+tracert www.example.com
+
+
+This command will determine the path taken to the destination (www.example.com) by sending ICMP echo requests with incrementally increasing TTL (time to live) values.
+
+
+2. **Stop resolving IP addresses of intermediate routers to their names (-d option):**
+
+
+tracert -d www.example.com
+```
+
+
+This command will stop resolving the IP addresses of intermediate routers to their names, which can speed up the return of results.
+
+
+3. **Specify the maximum number of hops (-h option):**
+
+
+tracert -h 20 www.example.com
+```
+
+
+This command will specify the maximum number of hops in the path to search for the target (www.example.com) as 20, instead of the default 30 hops.
+
+
+4. **Specify the timeout in milliseconds (-w option):**
+
+
+tracert -w 2000 www.example.com
+```
+
+
+This command will specify the timeout in milliseconds (2000 milliseconds in this case) to wait for the ICMP time Exceeded or echo Reply message corresponding to a given echo Request message to be received.
+
+
+5. **Use only IPv4 for the trace (-4 option):**
+
+
+tracert -4 www.example.com
+```
+This command will specify that `tracert` should use only IPv4 for the trace, even if IPv6 is available.
+
+
+6. **Specify a loose source route for the trace (-j option):**
+
+
+```bash
+tracert -j 10 www.example.com
+```
+
+
+This command will specify a loose source route for the trace, allowing you to specify the intermediate hops that packets should take along the way (in this case, up to 10 intermediate hops).
+Here are examples of using the `nslookup` command with various options:
+
+
+1. **Perform a lookup of all addresses associated with the specified hostname (-d2 option):**
+
+
+```bash
+nslookup -d2 www.example.com
+```
+
+
+This command will perform a lookup of all addresses associated with the specified hostname (www.example.com).
+
+
+2. **Perform a lookup of the mail exchange (MX) records associated with the specified domain (-query=mx option):**
+
+
+```bash
+nslookup -query=mx example.com
+```
+
+
+This command will perform a lookup of the mail exchange (MX) records associated with the specified domain (example.com), which are used to route email for that domain.
+
+
+3. **Check the NS records to see which is the authoritative server for a specific domain (-type=ns option):**
+
+
+```bash
+nslookup -type=ns example.com
+```
+
+
+This command will check the NS (Name Server) records for the specified domain (example.com) to determine which servers are authoritative for that domain.
+
+
+4. **See the start of authority and get information about the zone (-type=soa option):**
+
+
+```bash
+nslookup -type=soa example.com
+```
+
+
+This command will retrieve the start of authority (SOA) record for the specified domain (example.com) and provide information about the zone, such as the primary name server and administrator email address.
+
+
+These commands are commonly used for diagnosing DNS infrastructure issues, retrieving DNS records, and obtaining information about domain zones and authoritative servers.
+
+
+
+
+
+
+
+
+
+
+Here's an example of using the `netstat` command with various options, including an additional option:
+
+
+1. **Show all active connections and listening ports on the computer (-a option):**
+
+
+netstat -a
+```
+
+
+This command will display all active connections and listening ports on the computer, both TCP and UDP.
+
+
+2. **Display Ethernet statistics, including bytes and packets sent and received (-e option):**
+
+
+netstat -e
+```
+
+
+This command will display Ethernet statistics, including the number of bytes and packets sent and received.
+
+
+3. **Show active connections and their associated IP addresses and port numbers in numerical form (-n option):**
+
+
+netstat -n
+```
+
+
+This command will show active connections and their associated IP addresses and port numbers in numerical form, without resolving them to hostnames and service names.
+
+
+4. **Display a summary of all network statistics, including segments received and errors (-s option):**
+
+
+netstat -s
+```
+
+
+This command will display a summary of all network statistics, including information on the number of segments received, errors, and more.
+
+
+5. **Display the PID and name of the process associated with each connection (-b option):**
+
+
+netstat -b
+```
+
+
+This command will display the PID (Process ID) and name of the process associated with each connection. Note that this option may require administrative privileges on some systems.
+
+
+
+
+
+
+Here are examples of using the `route` and `hostname` commands with various options:
+
+
+1. **`route` Command:**
+
+
+a) **View the current routing table:**
+```bash
+route print
+```
+This command will display the current routing table, showing the list of network destinations, their corresponding gateway addresses, and interface indexes.
+
+
+b) **Add a new route:**
+```bash
+route add 192.168.1.0 mask 255.255.255.0 10.0.0.1
+```
+This command will add a new route for the network 192.168.1.0 with the subnet mask 255.255.255.0 and the gateway 10.0.0.1.
+
+
+c) **Modify an existing route:**
+```bash
+route change 192.168.1.0 mask 255.255.255.0 10.0.0.2
+```
+This command will modify the existing route for the network 192.168.1.0 to use the gateway 10.0.0.2 instead of the previous gateway.
+
+
+d) **Delete a route:**
+```bash
+route delete 192.168.1.0
+```
+This command will delete the route for the network 192.168.1.0 from the routing table.
+
+
+2. **`hostname` Command:**
+
+
+a) **Display the current hostname:**
+```bash
+hostname
+```
+This command will display the current hostname of the computer.
+
+
+b) **Set the hostname:**
+```bash
+hostname newhostname
+```
+This command will set the hostname of the computer to "newhostname". Note that this may require administrative privileges on some systems.
+
+
+
+
+
+
+Here are three more options for the `arp` command, along with examples:
+
+
+c) **-d: Delete an entry from the ARP cache:**
+```bash
+arp -d 192.168.1.100
+```
+This command will delete the ARP entry for the IP address 192.168.1.100 from the ARP cache.
+
+
+d) **-g: Displays the ARP cache for a specific interface:**
+```bash
+arp -g 192.168.1.1
+```
+This command will display the ARP cache for the interface associated with the IP address 192.168.1.1.
+
+
+e) **-s: Add a static ARP entry to the cache:**
+```bash
+arp -s 192.168.1.200 00-11-22-33-44-55
+```
+This command will add a static ARP entry to the cache, mapping the IP address 192.168.1.200 to the MAC address 00-11-22-33-44-55.
+
+
+These options allow for additional functionality when using the `arp` command, such as managing ARP cache entries and displaying detailed information about ARP cache entries.
+Certainly! Here are examples of using the `arp` command with the first two options:
+
+
+1. **Display the current ARP cache (-a option):**
+```bash
+arp -a
+```
+This command will display the current ARP (Address Resolution Protocol) cache, which maps IP addresses to MAC addresses on the local network.
+
+
+2. **Display the ARP cache in verbose mode (-v option):**
+```bash
+arp -av
+```
+This command will display the ARP cache in verbose mode, providing additional information such as the type of ARP entries (dynamic or static) and the interface used for each entry.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Certainly! Here are examples of using the `curl` command with the first two options and three additional options:
+
+
+1. **Download the content of the specified URL and display it in the console:**
+
+
+```bash
+curl https://www.example.com
+```
+
+
+This command will download the content of the specified URL (https://www.example.com) and display it in the console.
+
+
+2. **Download the content of the specified URL and save it to a file with the specified name (-o option):**
+
+
+```bash
+curl -o example.html https://www.example.com
+```
+
+
+This command will download the content of the specified URL (https://www.example.com) and save it to a file named "example.html" in the current directory.
+
+
+3. **Follow redirects (-L option):**
+
+
+```bash
+curl -L https://www.example.com
+```
+
+
+This command will follow any redirects encountered when accessing the specified URL. Useful when the server responds with a redirect to another URL.
+
+
+4. **Include headers in the output (-i option):**
+
+
+```bash
+curl -i https://www.example.com
+```
+
+
+This command will include the response headers in the output along with the downloaded content.
+
+
+5. **Set a custom user agent (-A option):**
+
+
+```bash
+curl -A "Mozilla/5.0" https://www.example.com
+```
+
+
+This command will set a custom user agent string ("Mozilla/5.0" in this example) in the request headers when accessing the specified URL.
+Here are examples of using the `whois`, `dig`, and `mtr` commands with additional options:
+
+
+10. **`whois` Command:**
+
+
+a) **Retrieves information about the specified domain name, suppressing headers and footers (-H option):**
+```bash
+whois -H example.com
+```
+This command will retrieve information about the domain "example.com" but suppresses the inclusion of headers and footers in the output.
+
+
+b) **Retrieve registrar-specific information (-r option):**
+```bash
+whois -r example.com
+```
+This command will retrieve registrar-specific information for the domain "example.com", such as registrar name and registration status.
+
+
+c) **Retrieve network-specific information (-N option):**
+```bash
+whois -N example.com
+```
+This command will retrieve network-specific information for the domain "example.com", such as network name, ASN, and CIDR range.
+
+
+d) **Perform a recursive WHOIS lookup (-R option):**
+```bash
+whois -R example.com
+```
+This command will perform a recursive WHOIS lookup for the domain "example.com", querying multiple WHOIS servers to gather comprehensive information.
+
+
+e) **Limit the output to only key-value pairs (-K option):**
+```bash
+whois -K example.com
+```
+This command will limit the output of the WHOIS query to only key-value pairs, making it easier to parse programmatically.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11. **`dig` Command:**
+
+
+a) **Query for MX records (-t mx option):**
+```bash
+dig -t mx example.com
+```
+This command will perform a DNS query for MX (Mail Exchange) records of the domain "example.com".
+
+
+b) **Query for NS records (-t ns option):**
+```bash
+dig -t ns example.com
+```
+This command will perform a DNS query for NS (Name Server) records of the domain "example.com".
+
+
+c) **Query a specific DNS server directly (-@ option):**
+```bash
+dig @8.8.8.8 example.com
+```
+This command will perform a DNS query for the domain "example.com" directly to the DNS server at IP address 8.8.8.8.
+
+
+d) **Reverse DNS lookup (-x option):**
+```bash
+dig -x 8.8.8.8
+```
+This command will perform a reverse DNS lookup to find the domain associated with the IP address 8.8.8.8.
+
+
+e) **Perform a DNSSEC validation (- +dnssec option):**
+```bash
+dig +dnssec example.com
+```
+This command will perform a DNS query for the domain "example.com" and include DNSSEC (Domain Name System Security Extensions) validation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12. **`mtr` Command:**
+
+
+a) **Specify the number of packets to send per hop (-c option):**
+```bash
+mtr -c 10 example.com
+```
+This command will send 10 packets per hop when tracing the route to the domain "example.com" using `mtr`.
+
+
+b) **Set the interval between sending packets (-i option):**
+```bash
+mtr -i 0.5 example.com
+```
+This command will set the interval between sending packets to 0.5 seconds when tracing the route to the domain "example.com" using `mtr`.
+
+
+c) **Display raw packet data in output (-r option):**
+```bash
+mtr -r example.com
+```
+This command will display raw packet data in the output when tracing the route to the domain "example.com" using `mtr`.
+
+
+d) **Specify the maximum hop count (-m option):**
+```bash
+mtr -m 30 example.com
+```
+This command will set the maximum hop count to 30 when tracing the route to the domain "example.com" using `mtr`.
+
+
+e) **Use TCP SYN packets instead of ICMP (-T option):**
+```bash
+mtr -T example.com
+```
+This command will use TCP SYN packets instead of ICMP when tracing the route to the domain "example.com" using `mtr`.
+
+
+These additional options provide more flexibility and functionality when using the `whois`, `dig`, and `mtr` commands for network diagnostics and troubleshooting.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here are five options for each of the commands:
+
+
+### 13. `ss` Command:
+
+
+1. **-t:** Show TCP sockets.
+   ```bash
+   ss -t
+   ```
+   This command will display TCP sockets.
+
+
+2. **-u:** Show UDP sockets.
+   ```bash
+   ss -u
+   ```
+   This command will display UDP sockets.
+
+
+3. **-l:** Show listening sockets.
+   ```bash
+   ss -l
+   ```
+   This command will display listening sockets.
+
+
+4. **-p:** Show process information for sockets.
+   ```bash
+   ss -p
+   ```
+   This command will display process information for sockets.
+
+
+5. **-n:** Show numerical addresses.
+   ```bash
+   ss -n
+   ```
+   This command will display numerical addresses instead of resolving them to hostnames.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 14. `wget` Command:
+
+
+1. **-O:** Specify the output filename.
+   ```bash
+   wget -O myfile.txt http://example.com/file.txt
+   ```
+   This command will download the file from the URL and save it as `myfile.txt`.
+
+
+2. **-q:** Quiet mode (no output).
+   ```bash
+   wget -q http://example.com/file.txt
+   ```
+   This command will download the file silently without showing progress.
+
+
+3. **-c:** Continue interrupted download.
+   ```bash
+   wget -c http://example.com/file.txt
+   ```
+   This command will resume a partially downloaded file.
+
+
+4. **-P:** Specify the directory prefix.
+   ```bash
+   wget -P /path/to/directory http://example.com/file.txt
+   ```
+   This command will save the downloaded file to the specified directory.
+
+
+5. **-r:** Recursive download.
+   ```bash
+   wget -r http://example.com/
+   ```
+   This command will recursively download all files from the specified URL.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 15. `route` Command:
+
+
+1. **-n:** Display numerical addresses.
+   ```bash
+   route -n
+   ```
+   This command will display the routing table with IP addresses in numerical format.
+
+
+2. **-e:** Display extended information.
+   ```bash
+   route -e
+   ```
+   This command will display extended information including interface and gateway addresses.
+
+
+3. **add:** Add a new route.
+   ```bash
+   route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.0.1
+   ```
+   This command will add a new route to the network 192.168.1.0 via the gateway 192.168.0.1.
+
+
+4. **del:** Delete a route.
+   ```bash
+   route del -net 192.168.1.0 netmask 255.255.255.0
+   ```
+   This command will delete the route to the network 192.168.1.0.
+
+
+5. **flush:** Flush routing table.
+   ```bash
+   route flush
+   ```
+   This command will flush all entries from the routing table.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 16. `host` Command:
+
+
+1. **-a:** Display all information.
+   ```bash
+   host -a example.com
+   ```
+   This command will display all available information for the domain `example.com`.
+
+
+2. **-t:** Specify the query type.
+   ```bash
+   host -t MX example.com
+   ```
+   This command will query the MX records for the domain `example.com`.
+
+
+3. **-C:** Display the domain's SOA record.
+   ```bash
+   host -C example.com
+   ```
+   This command will display the domain's Start of Authority (SOA) record.
+
+
+4. **-l:** Display local hostname and IP address.
+   ```bash
+   host -l
+   ```
+   This command will display the local hostname and IP address.
+
+
+5. **-W:** Set timeout for query.
+   ```bash
+   host -W 2 example.com
+   ```
+   This command will set a timeout of 2 seconds for the query to `example.com`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 17. `ifconfig` Command:
+
+
+1. **-a:** Display all interfaces, even those that are down.
+   ```bash
+   ifconfig -a
+   ```
+   This command will display information for all interfaces.
+
+
+2. **-s:** Display a short summary of interfaces.
+   ```bash
+   ifconfig -s
+   ```
+   This command will display a short summary of interfaces.
+
+
+3. **-v:** Display verbose output.
+   ```bash
+   ifconfig -v
+   ```
+   This command will display verbose output, including additional details.
+
+
+4. **eth0:** Display information for a specific interface (e.g., eth0).
+   ```bash
+   ifconfig eth0
+   ```
+   This command will display information for the `eth0` interface.
+
+
+5. **down:** Take an interface down.
+   ```bash
+   ifconfig eth0 down
+   ```
+   This command will take the `eth0` interface down.
