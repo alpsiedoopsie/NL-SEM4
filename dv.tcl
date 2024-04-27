@@ -12,15 +12,16 @@ global ns nf np
 $ns flush-trace
 close $np
 close $nf
-exec nam outrot.nam $
+exec nam outrot.nam &
 exit 0}
 
-for {set i 0} {$i < 9 } {incr i} {
+for {set i 0} {$i < 10 } {incr i} {
 set n($i) [$ns node] } 
 
+$ns duplex-link $n(9) $n(0) 2Mb 10 ms DropTail
 for {set i 0} {$i < 9 } {incr i} {
 $ns duplex-link $n($i) $n([expr $i+1]) 2Mb 10 ms DropTail }
-$ns duplex-link $n(8) $n(0) 2Mb 10 ms DropTail
+
 
 set udp [new Agent/UDP]
 $ns attach-agent $n(3) $udp

@@ -27,6 +27,7 @@ $ns duplex-link-op $n2 $n3 orient right
 set tcp [new Agent/TCP]
 $tcp set class_ 2 
 $ns attach-agent $n0 $tcp
+
 set sink [new Agent/TCPSink]
 $ns attach-agent $n3 $sink
 $ns connect $tcp $sink
