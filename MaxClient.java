@@ -16,6 +16,8 @@ public class MaxClient {
             out.println(userInputLine); // Send user input to the server
             
             String serverResponse = in.readLine(); // Receive response from the server
+            // I'm making an edit here 
+            System.out.println("Yo Yo bantai")
             System.out.println("Maximum value received from server: " + serverResponse);
             
             socket.close(); // Close the socket
